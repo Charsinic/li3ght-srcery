@@ -1,0 +1,152 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 5 
+
+        # srcery-gui (https://github.com/srcery-colors/srcery-gui/blob/master/i3wm/i3status-config)
+        output_format = "i3bar"
+        color_good = "#519F50"
+        color_degraded = "#FBB829"
+        color_bad = "#EF2F27"
+}
+
+
+order += "ipv6"
+order += "run_watch VPN"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "run_watch bluetooth"
+order += "volume master"
+order += "battery all"
+order += "load"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "tztime local"
+
+# status icons require font awesome (https://fontawesome.com/v4.7.0/cheatsheet/)
+ipv6 {
+	format_up = "v6"
+	format_down = ""
+	separator = "false"
+	align = "center"
+}
+
+wireless _first_ {
+        format_up = " %essid"
+        format_down = " "
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+ethernet _first_ {
+        # if you use %speed, i3status requires root privileges
+        format_up = " %speed"
+	format_down = ""
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+battery all {
+        format = "%status %percentage"
+	status_chr = ""
+	status_bat = ""
+	status_unk = ""
+	low_threshold = "10"
+	threshold_type = "percentage"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+tztime local {
+	format = " %b %d  %-I:%M"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+load {
+        format = " %1min"
+	separator = "false"
+	align = "center"
+	separator_block_width = 10
+}
+
+disk "/" {
+        format = " %avail"
+	low_threshold = "5"
+	threshold_type = "percentage_avail"
+	format_below_threshold = " %avail"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+cpu_temperature 0 {
+        format = " %degrees°C"
+	format_above_threshold = " %degrees°C"
+        # path varies by system, check i3status guide on paths (https://i3wm.org/i3status/manpage.html)
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+run_watch VPN {
+	format = ""
+	format_down = " "
+	# file containing the PID of an openvpn process
+	# varies by system, check i3status guide on pids (https://i3wm.org/i3status/manpage.html)
+	pidfile = "/var/run/openvpn/mullvad_us_dal.pid"
+	separator = "false"
+	align = "center"
+}
+
+run_watch bluetooth {
+	format = ""
+	format_down = ""
+	# file containing the PID of a bluetooth process
+	# varies by system, check i3status guide on pids (https://i3wm.org/i3status/manpage.html)
+	pidfile = "/var/run/udev/data/+bluetooth\:hci0"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+run_watch airplane {
+	format = ""
+	format_down = ""
+	# file containing the PID of the networking process
+	# varies by system, check i3status guide on pids (https://i3wm.org/i3status/manpage.html)
+	pidfile = "/var/run/dhclient-wlp0s20f3.pid"
+	separator = "false"
+	align = "center"
+	#separator_block_width = 15
+}
+
+volume master {
+	format = " %volume"
+	format_muted = " %volume"
+	# device varies by system, check i3status guide on devices (https://i3wm.org/i3status/manpage.html)
+	device = "pulse:alsa_output.pci-0000_00_1f.3.analog-stereo"
+	separator = "true"
+	align = "center"
+	separator_block_width = 15
+}
+
+cpu_usage {
+	format = " %usage"
+	separator = "false"
+	align = "center"
+	separator_block_width = 10
+}
