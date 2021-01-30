@@ -2,7 +2,7 @@
 dotfiles for li3ght-srcery, based on srcery colors
 
 ## install
-put i3, dunst, i3status files in your ```.config``` directory. put the lockscreen scripts in your ```/usr/local/bin``` directory
+put i3, i3status, dunst, procps files in your ```.config``` directory. put the lockscreen scripts in your ```/usr/local/bin``` directory
 
 ## srcery dotfiles
 [srcery](https://srcery-colors.github.io/) (i3wm, vifm, vim, gnome-terminal, newsboat, cmus, zathura)
@@ -18,6 +18,10 @@ put i3, dunst, i3status files in your ```.config``` directory. put the lockscree
 * neofetch
 * hexedit
 * s-tui
+
+## not pictured
+* dunst
+* top
 
 ## preview
 ![li3ght-srcery_collage](https://raw.githubusercontent.com/Charsinic/li3ght-srcery/main/assets/li3ght-srcery_collage.png)
