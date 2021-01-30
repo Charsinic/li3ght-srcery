@@ -5,7 +5,7 @@ dotfiles for li3ght-srcery, based on srcery colors
 put i3, i3status, dunst, procps files in your ```.config``` directory. put the lockscreen scripts in your ```/usr/local/bin``` directory
 
 ## srcery dotfiles
-[srcery](https://srcery-colors.github.io/) (i3wm, vifm, vim, gnome-terminal, newsboat, cmus, zathura)
+[srcery](https://srcery-colors.github.io/) (i3wm, vifm, vim, gnome-terminal, newsboat, cmus, zathura). i updated their oomox theme for my gtk colors.
 
 ## apps
 * cmus
